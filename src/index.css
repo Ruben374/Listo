@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+
+@theme{
+  --font-roboto: 'Roboto':'sans-serif'
+}
+
+/* Fonte global */
+:root {
+  font-family: Roboto,system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Body */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #fff;
+  color: #111;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Botões (se quiseres globais, mas podes usar Tailwind) */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Dark mode automático (opcional, se não usares Tailwind dark:class) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #eee;
+  }
+}

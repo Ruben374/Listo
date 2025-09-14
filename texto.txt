@@ -1,0 +1,58 @@
+my-todo-app/
+├── docker-compose.yml
+├── frontend/
+│   ├── Dockerfile.dev
+│   └── package.json
+└── backend/
+    ├── Dockerfile.dev
+    └── pom.xml
+
+
+
+    version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: todo-frontend
+    ports:
+      - "5173:5173"       # Porta do Vite
+    volumes:
+      - ./frontend:/app   # hot reload
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: todo-backend
+    ports:
+      - "8080:8080"       # API Spring Boot
+    volumes:
+      - ./backend:/app
+      - /app/target
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: todo-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: todolist
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

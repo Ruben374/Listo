@@ -44,7 +44,70 @@ function Home() {
 
       {/* Parte com os cards*/}
       <div className="bg-white flex justify-between min-h-full">
-        <div className="w-1/2 bg-amber-600 min-h-full">o</div>
+        <div className="w-1/2 bg-amber-600 min-h-full">
+          {/* Top */}
+          <div className="bg-black flex flex-col p-2">
+            <div className="flex flex-1 justify-between">
+              <span>To Do</span>
+              <button>+Add task</button>
+            </div>
+            <div className="flex flex-1 space-x-2">
+              <span>20 June</span>
+              <span>Today</span>
+            </div>
+          </div>
+          {/* Bottom */}
+          <div className="flex flex-col p-10">
+            <div className="flex max-w-xl bg-white shadow-md rounded-xl p-4 items-start gap-4">
+              {/* Ícone de status à esquerda */}
+              <div className="flex items-center justify-center">
+                <div className="w-4 h-4 border-2 border-red-500 rounded-full"></div>
+              </div>
+
+              {/* Conteúdo principal */}
+              <div className="flex flex-col flex-1 gap-2">
+                {/* Título */}
+                <h2 className="text-lg font-semibold">
+                  Attend Nischal’s Birthday Party
+                </h2>
+
+                {/* Descrição */}
+                <p className="text-sm text-gray-600">
+                  Buy gifts on the way and pick up cake from the bakery.
+                  <span className="font-medium">(6 PM | Fresh Elements)</span>
+                </p>
+
+                {/* Rodapé com prioridade, status e data */}
+                <div className="flex justify-between text-xs text-gray-500 mt-2">
+                  <span>
+                    Priority:{" "}
+                    <span className="text-blue-500 font-medium">Moderate</span>
+                  </span>
+                  <span>
+                    Status:{" "}
+                    <span className="text-red-500 font-medium">
+                      Not Started
+                    </span>
+                  </span>
+                  <span>Created on: 20/06/2023</span>
+                </div>
+              </div>
+
+              {/* Imagem à direita */}
+              <div>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuJY1JLYLvoFUmZDByG7NnEHNsP6_J4bFP5w&s"
+                  alt="Birthday Party"
+                  className="w-16 h-16 rounded-lg object-cover"
+                />
+              </div>
+              {/* Ícone de status à esquerda */}
+              <div className="flex items-center justify-center">
+                <div className="w-4 h-4 border-2 border-red-500 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="w-1/2 full bg-amber-950 min-h-full">o</div>
       </div>
     </Layout>

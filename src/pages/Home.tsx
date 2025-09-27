@@ -1,11 +1,13 @@
-import { Users, Ellipsis, ClipboardClock, Plus, Dot } from "lucide-react";
+import { Users, ClipboardClock, Plus, Dot } from "lucide-react";
 import Layout from "../components/Layout";
+import TaskCard from "../components/TaskCard";
+import TaskStatusCard from "../components/TaskStatusCard";
 
 function Home() {
   return (
     <Layout>
-      <div className="flex-1 ">
-        <div className="flex h-15 flex-1 justify-between items-center">
+      <div className="flex-1 px-20">
+        <div className="flex h-15 flex-1 justify-between items-center mb-10 ">
           <span className="text-5xl text-black">Welcome back, Kurapika 👋</span>
           <div className="flex items-center space-x-4">
             <div className="flex space-x-2">
@@ -42,8 +44,8 @@ function Home() {
           </div>
         </div>
 
-        <div className="bg-white flex justify-between border-2 min-h-screen">
-          <div className="w-1/2 flex flex-col items-center">
+        <div className="p-10 flex justify-between border-2 min-h-screen gap-5 border-gray-300">
+          <div className="w-1/2 flex flex-col items-center p-5 gap-5 shadow-lg">
             <div className=" flex flex-col p-2 w-full mb-3 gap-4 px-5">
               <div className="flex flex-1 justify-between">
                 <div className="flex justify-between gap-4">
@@ -64,52 +66,26 @@ function Home() {
                 </span>
               </div>
             </div>
-
-            <div className="flex max-w-xl border-2 shadow-md rounded-xl p-4 items-start gap-4 bg-amber-300">
-              <div className="flex items-center justify-center">
-                <div className="w-4 h-4 border-2 border-red-500 rounded-full"></div>
+            <TaskCard />
+            <TaskCard />
+            <TaskCard />
+            <TaskCard />
+          </div>
+          <div className="w-1/2 px-5 flex flex-col gap-5 ">
+            {/* Task card status */}
+            <TaskStatusCard />
+            <div className=" p-5 rounded-xl shadow-lg w-full flex flex-col gap-5">
+              {/* Topo */}
+              <div className="flex items-center gap-2 mb-6">
+                <ClipboardClock className="text-gray-400" />
+                <span className="text-red-500 font-semibold">
+                  Completed Task
+                </span>
               </div>
-
-              <div className="flex flex-col flex-1 gap-2">
-                <h2 className="text-lg font-semibold">
-                  Attend Nischal’s Birthday Party
-                </h2>
-                <div className="flex flex-row flex-1 gap-5">
-                  <p className="text-sm text-gray-600">
-                    Buy gifts on the way and pick up cake from the bakery.
-                    <span className="font-medium">(6 PM | Fresh Elements)</span>
-                  </p>
-
-                  <div>
-                    <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuJY1JLYLvoFUmZDByG7NnEHNsP6_J4bFP5w&s"
-                      alt="Birthday Party"
-                      className="w-50 h-30 rounded-lg object-cover"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex justify-between text-xs text-gray-500 mt-2">
-                  <span>
-                    Priority:{" "}
-                    <span className="text-blue-500 font-medium">Moderate</span>
-                  </span>
-                  <span>
-                    Status:{" "}
-                    <span className="text-red-500 font-medium">
-                      Not Started
-                    </span>
-                  </span>
-                  <span>Created on: 20/06/2023</span>
-                </div>
-              </div>
-
-              <button className="flex items-center justify-center">
-                <Ellipsis />
-              </button>
+              <TaskCard />
+              <TaskCard />
             </div>
           </div>
-          <div className="w-1/2  bg-amber-950 ">o</div>
         </div>
       </div>
     </Layout>
